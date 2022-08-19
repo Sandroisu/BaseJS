@@ -32,7 +32,7 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
         if (count > 100) {
           lastDigit = count % 100;
           if (isPlural(lastDigit)) {
-            return five
+            return five;
           }
           lastDigit = count % 10;
         } else if (count > 20) {
@@ -40,30 +40,20 @@ console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
         } else if (count > 10) {
           return five;
         }
-        switch (lastDigit) {
-          case 1:
-            return one;
-          case 2:
-          case 3:
-          case 4:
-            return two;
-          case 0:
-          case 5:
-          case 6:
-          case 7:
-          case 8:
-          case 9:
-            return five;
-          default:
-            return one;
+        if (lastDigit === 1) {
+          return one;
         }
+        if (lastDigit > 1 && lastDigit < 5) {
+          return two;
+        }
+        return five;
       }
 
       function isPlural(num) {
         if (num === 0) {
-          return true
+          return true;
         }
-        return num > 4 && num < 20
+        return num > 4 && num < 20;
       }
 
       // Число яблок, можно пробовать поставить свое целое, положительное число.
